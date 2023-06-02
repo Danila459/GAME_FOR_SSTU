@@ -69,6 +69,6 @@ public class PlayerHealth : MonoBehaviour {
 		//Instantiate(deathFX, transform.position, transform.rotation);
 
 		//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-		SceneManager.LoadScene("GameOver");
+		SceneManager.LoadScene(3);
 	}
 }
