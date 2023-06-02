@@ -6,28 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
 	public float fullHealth;
-	//public GameObject deathFX;
 	float currentHealth;
 	public AudioClip playerHurt;
 	AudioSource playerAS;
-	// public GameObject gameOverScreen;
-    // public GameManager theGameManager;
 
 	PlayerController playerControl;
 
-	//Player Heart Bar
 	public Slider heartBar;
 	public Image damageScreen;
 	bool damaged = false;
 	Color damagedColour = new Color(5f,5f,0f,0.5f);
 	float smoothColour = 5f;
 
-	// Use this for initialization
 	void Start () {
 		currentHealth = fullHealth;
 		playerControl = GetComponent<PlayerController>();
 
-		//Heart Bar
 		heartBar.maxValue=fullHealth;
 		heartBar.value=fullHealth;
 
@@ -36,7 +30,6 @@ public class PlayerHealth : MonoBehaviour {
 		damaged = false;
 	}
 
-	// Update is called once per frame
 	void Update () {
 		if(damaged){
 			damageScreen.color = damagedColour;
@@ -50,8 +43,6 @@ public class PlayerHealth : MonoBehaviour {
 	public void addDamage(float damage){
 		if(damage<=0) return;
 		currentHealth = currentHealth - damage;
-		//playerAS.clip =  playerHurt;
-		//playerAS.Play(1);
 		playerAS.PlayOneShot(playerHurt);
 		heartBar.value = currentHealth;
 		damaged = true;
@@ -66,9 +57,6 @@ public class PlayerHealth : MonoBehaviour {
 		heartBar.value =currentHealth;
 	}
 	public void makeDead(){
-		//Instantiate(deathFX, transform.position, transform.rotation);
-
-		//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		SceneManager.LoadScene(3);
 	}
 }

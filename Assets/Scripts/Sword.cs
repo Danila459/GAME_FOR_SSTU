@@ -6,12 +6,10 @@ public class Sword : MonoBehaviour {
 
 	public float scale_karak;
 	public float damagesenjata;
-	// Use this for initialization
 	void Start () {
 		scale_karak = GameObject.Find("player").transform.localScale.x;
 	}
 
-	// Update is called once per frame
 	void Update () {
 			if(scale_karak ==  1f){
 				GetComponent<Rigidbody2D>().velocity = new Vector2(8f, GetComponent<Rigidbody2D>().velocity.y);
@@ -52,7 +50,4 @@ public class Sword : MonoBehaviour {
 				}
 			
 		}
-		// public void removeForce(){
-		// 	GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
-		// }
 }

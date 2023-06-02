@@ -10,13 +10,10 @@ public class Spike : MonoBehaviour {
 	public float pushBackForce;
 
 	float nextDamage;
-
-	// Use this for initialization
 	void Start () {
 		nextDamage = 0f;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 	}

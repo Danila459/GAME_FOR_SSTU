@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour {
 		myHeight = mySprite.bounds.extents.y;
 	}
 
-	// Update is called once per frame
 	void FixedUpdate () {
 
 		Vector2 lineCastPos = myTrans.position.toVector2() - myTrans.right.toVector2() * myWidth + Vector2.up * myHeight;
@@ -28,13 +27,12 @@ public class Enemy : MonoBehaviour {
 		Debug.DrawLine(lineCastPos, lineCastPos - myTrans.right.toVector2() * .05f);
   		bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - myTrans.right.toVector2() * .05f, enemyMask);
 
-      //ketika menabrak layer isBlocked dan isGrounded maka akan berbalik arah
 		if(isBlocked||isGrounded){
 			Vector3 currRot = myTrans.eulerAngles;
 			currRot.y += 180;
 			myTrans.eulerAngles =currRot;
 		}
-		//Always Move Forward
+
 		  Vector2 myVel = myBody.velocity;
 			myVel.x = -myTrans.right.x * speed;
 			myBody.velocity = myVel;
